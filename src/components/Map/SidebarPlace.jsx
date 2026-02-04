@@ -15,7 +15,7 @@ import {
 import Link from "next/link";
 import React, { useState } from "react";
 
-const SidebarPlace = () => {
+const SidebarPlace = ({ place, onClose }) => {
   const [liked, setLiked] = useState(false);
   const [save, setSave] = useState(false);
   const [image, setImage] = useState(0);

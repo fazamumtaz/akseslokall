@@ -313,3 +313,30 @@ export const LIST_LOCATION = [
     metadata: { is_verified: true, updated_at: "2026-01-31T12:45:00Z" },
   },
 ];
+
+export const LIST_LEGENDS = [
+  {
+    icon: "/hospital.png",
+    label: "Fasilitas Kesehatan",
+  },
+  {
+    icon: "/ibadah.png",
+    label: "Rumah Ibadah",
+  },
+  {
+    icon: "/Shopping.png",
+    label: "Tempat Belanja",
+  },
+  {
+    icon: "/pendidikan.png",
+    label: "Fasilitas Pendidikan",
+  },
+  {
+    icon: "/tourism.png",
+    label: "Tempat Wisata",
+  },
+  {
+    icon: "/transportation.png",
+    label: "Transportasi Publik",
+  },
+];
