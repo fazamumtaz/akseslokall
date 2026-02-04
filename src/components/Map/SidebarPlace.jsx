@@ -1,9 +1,9 @@
 import {
   Accessibility,
   Bookmark,
+  ChevronRight,
   Footprints,
   Heart,
-  Map,
   MapPin,
   MoveRight,
   Route,
@@ -18,9 +18,33 @@ import React, { useState } from "react";
 const SidebarPlace = () => {
   const [liked, setLiked] = useState(false);
   const [save, setSave] = useState(false);
+  const [image, setImage] = useState(0);
+
+  const images = [
+    "https://cdn.rri.co.id/berita/Purwokerto/o/1764660756514-WhatsApp_Image_2025-11-27_at_11.25.47_AM/z1rouc9vvmho5c3.jpeg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlsFMopPXfcNMRxrPN2QZgAoeHiJ14FBgX1A&s",
+    "https://awsimages.detik.net.id/community/media/visual/2024/06/28/kampus-unsoed_169.jpeg?w=600&q=90",
+  ];
+
+  const handleNextCarousel = () => {
+    image === images.length - 1 ? setImage(0) : setImage((image) => image + 1);
+  };
+
   return (
-    <div className="absolute z-10 w-full max-w-md h-[98%] top-1/2 -translate-y-1/2 left-2 rounded-xl bg-white shadow-2xl flex flex-col p-5 overflow-y-auto">
-      <div className="bg-black/80 w-full h-50 rounded-lg"></div>
+    <div className="absolute z-1000 w-full max-w-md h-[98%] top-1/2 -translate-y-1/2 left-2 rounded-xl bg-white shadow-2xl flex flex-col p-5 overflow-y-auto">
+      <div className="w-full h-50 rounded-lg relative bg-black">
+        <img
+          src={images[image]}
+          alt=""
+          className="w-full h-full object-contain object-center"
+        />
+        <div
+          onClick={handleNextCarousel}
+          className="absolute top-1/2 -translate-y-1/2 right-2 shadow-2xl cursor-pointer p-1 rounded-full bg-black/50"
+        >
+          <ChevronRight className="w-5 h-5 stroke-white" />
+        </div>
+      </div>
 
       {/* judul */}
       <div className="w-full mt-5 flex">
@@ -59,13 +83,13 @@ const SidebarPlace = () => {
         <div className="flex flex-col items-center gap-1">
           <div
             onClick={() => setLiked((liked) => !liked)}
-            className={`p-3 border-2 ${liked ? "border-transparent" : "border-black/20 bg-white"} rounded-full w-fit bg-red-500/30`}
+            className={`p-3 border-2 ${liked ? "border-transparent" : "border-black/20 bg-white"} rounded-full w-fit bg-red-500/30 transition duration-150 ease-in-out transform active:scale-90`}
           >
             <Heart
               className={` ${liked ? "stroke-red-500" : "stroke-black"} w-6 h-6  ${liked ? "fill-red-500" : "fill-transparent"}`}
             />
           </div>
-          <p className="text-black">Suka</p>
+          <p className="text-black select-none">Suka</p>
         </div>
         {/*  */}
         <div className="flex flex-col items-center gap-1">

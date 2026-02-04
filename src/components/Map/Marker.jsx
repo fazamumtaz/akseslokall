@@ -22,7 +22,7 @@ export default function MapMarker({ place }) {
   return (
     <Marker position={[lat, lng]} icon={customMarker}>
       <Popup>
-        <div className="font-sans">
+        <div className="font-sans w-50 h-50">
           <h3 className="font-bold text-lg">{place.name}</h3>
           <p className="text-sm">
             Skor Aksesibilitas:{" "}
